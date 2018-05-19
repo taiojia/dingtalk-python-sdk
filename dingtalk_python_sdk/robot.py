@@ -58,3 +58,26 @@ class Robot(object):
             }
         }
         return self._post(data)
+
+    def send_markdown(self, title, text, mobiles=[], at_all=False):
+        """
+        the markdown type
+
+        :param title:  message title
+        :param text: markdown contents
+        :param mobiles: the phone number to @
+        :param at_all: @ everybody
+        :return: dingtalk api response
+        """
+
+        data = {
+            "msgtype": "markdown",
+            "markdown": {"title": title,
+                         "text": text
+                         },
+            "at": {
+                "atMobiles": mobiles,
+                "isAtAll": at_all
+            }
+        }
+        return self._post(data)
