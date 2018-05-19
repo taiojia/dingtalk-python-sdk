@@ -37,3 +37,24 @@ class Robot(object):
             }
         }
         return self._post(data)
+
+    def send_link(self, title, text, message_url, pic_url):
+        """
+        the link type
+
+        :param title: message title
+        :param text: message text
+        :param message_url: message url
+        :param pic_url: image url
+        :return: dingtalk api response
+        """
+        data = {
+            "msgtype": "link",
+            "link": {
+                "text": text,
+                "title": title,
+                "picUrl": pic_url,
+                "messageUrl": message_url
+            }
+        }
+        return self._post(data)
